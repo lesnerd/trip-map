@@ -1,0 +1,33 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "ninja-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "cacheVariables": {
+        "CMAKE_CUDA_COMPILER": "$env{CUDA_PATH}/bin/nvcc.exe",
+        "CUDAToolkit_ROOT": "$env{CUDA_PATH}",
+        "CMAKE_C_COMPILER": "cl",
+        "CMAKE_CXX_COMPILER": "cl"
+      }
+    },
+    {
+      "name": "release",
+      "displayName": "Ninja Release (run from a VS x64 developer environment, see build.ps1)",
+      "inherits": "ninja-base",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+    },
+    {
+      "name": "debug",
+      "displayName": "Ninja Debug",
+      "inherits": "ninja-base",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+    }
+  ],
+  "buildPresets": [
+    { "name": "release", "configurePreset": "release" },
+    { "name": "debug", "configurePreset": "debug" }
+  ]
+}
