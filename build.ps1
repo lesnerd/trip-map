@@ -2,6 +2,9 @@
 #   .\build.ps1                  # release build
 #   .\build.ps1 -Config debug    # debug build (syncs after every kernel)
 #   .\build.ps1 -Run --demo      # build and open the demo map
+#   .\build.ps1 -Run "D:\Pictures"
+# PositionalBinding is off so app flags like --demo are not taken as -Config.
+[CmdletBinding(PositionalBinding = $false)]
 param(
     [ValidateSet('release', 'debug')][string]$Config = 'release',
     [switch]$Run,

@@ -35,7 +35,7 @@ GLFW and Dear ImGui are downloaded by CMake on the first configure.
 ```powershell
 .\build.ps1                         # Release build -> build\release\tripmap.exe
 .\build.ps1 -Run --demo             # build and open the sample trips
-.\build.ps1 -Run -- "D:\Pictures"   # build and scan a folder
+.\build.ps1 -Run "D:\Pictures"      # build and scan a folder
 .\build.ps1 -Config debug           # sync after every kernel so a fault names the launch
 ```
 
